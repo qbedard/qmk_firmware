@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, \
     KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSLS, \
     LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_ENT, \
-    KC_LSFT, LCA_T(KC_Z), KC_X, KC_C, KC_V, KC_B, KC_GRV, KC_DEL, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, RSFT_T(KC_QUOT), \
+    KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_GRV, KC_DEL, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, RSFT_T(KC_QUOT), \
     KC_LALT, KC_LGUI, LT(_LOWER, KC_SPC), LT(_RAISE, KC_SPC), C(KC_LALT), KC_ENT \
   ),
 
@@ -48,7 +48,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
+/* const rgblight_segment_t PROGMEM layer_lower[] = RGBLIGHT_LAYER_SEGMENTS( */
+/*     {1, 6, HSV_BLUE} */
+/* ); */
+/* const rgblight_segment_t PROGMEM layer_raise[] = RGBLIGHT_LAYER_SEGMENTS( */
+/*     {1, 6, HSV_YELLOW} */
+/* ); */
+/* const rgblight_segment_t PROGMEM layer_adjust[] = RGBLIGHT_LAYER_SEGMENTS( */
+/*     {1, 6, HSV_GREEN} */
+/* ); */
+/* const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST( */
+/*     layer_lower, */
+/*     layer_raise, */
+/*     layer_adjust */
+/* ); */
+
+/* void keyboard_post_init_user(void) { */
+/*     rgblight_layers = rgb_layers; */
+/* } */
+
 layer_state_t layer_state_set_user(layer_state_t state) {
+    /* rgblight_set_layer_state(1, layer_state_cmp(state, 1)); */
+    /* rgblight_set_layer_state(2, layer_state_cmp(state, 2)); */
+    /* rgblight_set_layer_state(3, layer_state_cmp(state, 3)); */
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
