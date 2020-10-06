@@ -1,6 +1,5 @@
 #include QMK_KEYBOARD_H
 
-
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
@@ -14,14 +13,6 @@
 #define KC_CALT C(KC_LALT)
 #define KC_ASPC A(KC_SPC)
 #define KC_XXXX KC_NO
-
-
-enum custom_keycodes {
-  QWERTY = SAFE_RANGE,
-  LOWER,
-  RAISE,
-  ADJUST,
-};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -98,5 +89,18 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         } else {
             tap_code(KC_PGUP);
         }
+    }
+}
+
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_SPLW:
+            return true;
+        case KC_SPRS:
+            return true;
+        case KC_SQUO:
+            return true;
+        default:
+            return false;
     }
 }
