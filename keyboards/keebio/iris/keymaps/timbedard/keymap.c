@@ -6,11 +6,14 @@
 #define _ADJUST 3
 
 #define KC_____ KC_TRNS
+#define KC_LOWR MO(_LOWER)
+#define KC_RAIS MO(_RAISE)
 #define KC_SPLW LT(_LOWER, KC_SPC)
 #define KC_SPRS LT(_RAISE, KC_SPC)
 #define KC_CESC CTL_T(KC_ESC)
 #define KC_SQUO SFT_T(KC_QUOT)
 #define KC_CALT C(KC_LALT)
+#define KC_SPCA MT(C(KC_LALT), KC_SPC)
 #define KC_ASPC A(KC_SPC)
 #define KC_XXXX KC_NO
 
@@ -21,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TAB,    Q,    W,    E,    R,    T,                Y,    U,    I,    O,    P, BSLS, \
     CESC,    A,    S,    D,    F,    G,                H,    J,    K,    L, SCLN,  ENT, \
     LSFT,    Z,    X,    C,    V,    B,  GRV,  DEL,    N,    M, COMM,  DOT, SLSH, SQUO, \
-                            LALT, LGUI, SPLW, SPRS, CALT,  ENT \
+                            LGUI, LOWR, SPCA,  ENT, RAIS, LALT \
   ),
 
   [_LOWER] = LAYOUT_kc(
