@@ -10,10 +10,11 @@
 #define KC_RAIS MO(_RAISE)
 #define KC_SPLW LT(_LOWER, KC_SPC)
 #define KC_SPRS LT(_RAISE, KC_SPC)
+#define KC_BSLW LT(_LOWER, KC_BSPC)
 #define KC_CESC CTL_T(KC_ESC)
+#define KC_AENT ALT_T(KC_ENT)
 #define KC_SQUO SFT_T(KC_QUOT)
 #define KC_CALT C(KC_LALT)
-#define KC_SPCA MT(C(KC_LALT), KC_SPC)
 #define KC_ASPC A(KC_SPC)
 #define KC_XXXX KC_NO
 
@@ -24,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TAB,    Q,    W,    E,    R,    T,                Y,    U,    I,    O,    P, BSLS, \
     CESC,    A,    S,    D,    F,    G,                H,    J,    K,    L, SCLN,  ENT, \
     LSFT,    Z,    X,    C,    V,    B,  GRV,  DEL,    N,    M, COMM,  DOT, SLSH, SQUO, \
-                            LGUI, LOWR, SPCA,  ENT, RAIS, LALT \
+                            LGUI, BSLW, CESC, AENT, SPRS, CALT \
   ),
 
   [_LOWER] = LAYOUT_kc(
@@ -32,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ____,    1,    2,    3,    4,    5,                6,    7,    8,    9,    0, PGDN, \
     ____, ____, LEFT, RGHT,   UP, LBRC,             RBRC,   P4,   P5,   P6, PLUS, HOME, \
     ____, ____, ____, ____, DOWN, LCBR, LPRN, RPRN, RCBR,   P1,   P2,   P3, MINS,  END, \
-                            ____, ____, XXXX, ____, ____,   P0 \
+                            ____, XXXX, ____, ____, ____,   P0 \
   ),
 
   [_RAISE] = LAYOUT_kc(
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ____, EXLM,   AT, HASH,  DLR, PERC,             CIRC, AMPR, ASTR, LPRN, RPRN, PIPE, \
      ____, MPRV, MNXT, VOLU, PGUP, ____,             LEFT, DOWN,   UP, RGHT, ASPC, ____, \
      ____, MSTP, MPLY, VOLD, PGDN, LPRN,  END, ____, RPRN, PLUS, MINS,  EQL, UNDS, ____, \
-                             ____, ____, ____, XXXX, ____, ____ \
+                             ____, ____, ____, ____, XXXX, ____ \
   ),
 
   [_ADJUST] = LAYOUT(
