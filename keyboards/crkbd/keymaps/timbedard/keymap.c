@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_kc(
     TILD, EXLM,   AT, HASH,  DLR, PERC,             CIRC, AMPR, ASTR, LPRN, RPRN, PIPE,
-    ____, ____, LEFT, RGHT,   UP, LBRC,             RBRC,   P4,   P5,   P6, PLUS, ____,
-    ____, ____, ____, ____, DOWN, LCBR,             RCBR,   P1,   P2,   P3, MINS, ____,
+    ____, ____, LEFT, RGHT,   UP, LBRC,             RBRC, MINS, PLUS, LBRC, RBRC, ____,
+    ____, ____, ____, ____, DOWN, LCBR,             RCBR, UNDS, EQL,  LCBR, RCBR, ____,
                             ____, XXXX, ____, ____, ____,   P0
   ),
 
