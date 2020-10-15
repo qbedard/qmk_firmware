@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_RAISE] = LAYOUT_kc(
-    ____,    1,    2,    3,    4,    5,                6,    7,    8,    9,    0, BSLS,
+     GRV,    1,    2,    3,    4,    5,                6,    7,    8,    9,    0, BSLS,
     ____, MPRV, MNXT, VOLU, PGUP, ____,             LEFT, DOWN,   UP, RGHT, ASPC, ____,
     ____, MSTP, MPLY, VOLD, PGDN, LPRN,             RPRN, PLUS, MINS,  EQL, UNDS, ____,
                             ____, ____, ____, ____, XXXX, ____
