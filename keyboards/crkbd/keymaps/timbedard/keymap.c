@@ -28,14 +28,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LOWER] = LAYOUT_kc(
-    TILD, EXLM,   AT, HASH,  DLR, PERC,             CIRC, AMPR, ASTR, LPRN, RPRN, PIPE,
+     GRV,    1,    2,    3,    4,    5,                6,    7,    8,    9,    0, BSLS,
     ____, ____, LEFT, RGHT,   UP, LBRC,             RBRC, MINS, PLUS, LBRC, RBRC, ____,
     ____, ____, ____, ____, DOWN, LCBR,             RCBR, UNDS, EQL,  LCBR, RCBR, ____,
                             ____, XXXX, ____, ____, ____,   P0
   ),
 
   [_RAISE] = LAYOUT_kc(
-     GRV,    1,    2,    3,    4,    5,                6,    7,    8,    9,    0, BSLS,
+    TILD, EXLM,   AT, HASH,  DLR, PERC,             CIRC, AMPR, ASTR, LPRN, RPRN, PIPE,
     ____, MPRV, MNXT, VOLU, PGUP, ____,             LEFT, DOWN,   UP, RGHT, ASPC, ____,
     ____, MSTP, MPLY, VOLD, PGDN, LPRN,             RPRN, PLUS, MINS,  EQL, UNDS, ____,
                             ____, ____, ____, ____, XXXX, ____
@@ -73,23 +73,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     /* rgblight_set_layer_state(2, layer_state_cmp(state, 2)); */
     /* rgblight_set_layer_state(3, layer_state_cmp(state, 3)); */
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
-}
-
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (index == 1) {
-        if (clockwise) {
-            tap_code(KC_PGDN);
-        } else {
-            tap_code(KC_PGUP);
-        }
-    }
 }
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
