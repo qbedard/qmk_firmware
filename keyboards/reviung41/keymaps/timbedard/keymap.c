@@ -20,26 +20,47 @@ enum layer_names {
     _ADJUST
 };
 
+enum {
+  TD_ALT_CALT,
+};
+
 #define KC_____ KC_TRNS
-#define KC_LOWR MO(_LOWER)
-#define KC_RAIS MO(_RAISE)
-#define KC_SPLW LT(_LOWER, KC_SPC)
 #define KC_SPRS LT(_RAISE, KC_SPC)
 #define KC_BSLW LT(_LOWER, KC_BSPC)
 #define KC_CESC CTL_T(KC_ESC)
-#define KC_AENT ALT_T(KC_ENT)
 #define KC_SQUO SFT_T(KC_QUOT)
-#define KC_CALT C(KC_LALT)
 #define KC_ASPC A(KC_SPC)
-#define KC_GTAB G(KC_TAB)
+#define KC_TACA TD(TD_ALT_CALT)
 #define KC_XXXX KC_NO
+
+void dance_calt_finished(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        register_code16(KC_RALT);
+    } else {
+        register_code(KC_LCTL);
+        register_code(KC_RALT);
+    }
+}
+
+void dance_calt_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        unregister_code16(KC_RALT);
+    } else {
+        unregister_code(KC_LCTL);
+        unregister_code(KC_RALT);
+    }
+}
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_ALT_CALT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_calt_finished, dance_calt_reset),
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_kc(
      TAB,    Q,    W,    E,    R,    T,          Y,    U,    I,    O,    P, BSPC,
     CESC,    A,    S,    D,    F,    G,          H,    J,    K,    L, SCLN,  ENT,
     LSFT,    Z,    X,    C,    V,    B,          N,    M, COMM,  DOT, SLSH, SQUO,
-                            LGUI, BSLW,  SPC, SPRS, LALT
+                            LGUI, BSLW,  SPC, SPRS, TACA
   ),
 
   [_LOWER] = LAYOUT_kc(
@@ -70,8 +91,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_SPLW:
-            return true;
         case KC_SPRS:
             return true;
         case KC_SQUO:
