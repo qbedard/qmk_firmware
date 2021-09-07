@@ -22,6 +22,7 @@ enum layer_names {
 
 enum {
   TD_ALT_CALT,
+  TD_GUI_CALT,
 };
 
 #define KC_____ KC_TRNS
@@ -31,6 +32,7 @@ enum {
 #define KC_SQUO SFT_T(KC_QUOT)
 #define KC_ASPC A(KC_SPC)
 #define KC_TACA TD(TD_ALT_CALT)
+#define KC_TGCA TD(TD_GUI_CALT)
 #define KC_XXXX KC_NO
 
 void dance_calt_finished(qk_tap_dance_state_t *state, void *user_data) {
@@ -51,8 +53,27 @@ void dance_calt_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+void dance_galt_finished(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        register_code16(KC_LGUI);
+    } else {
+        register_code(KC_LCTL);
+        register_code(KC_RALT);
+    }
+}
+
+void dance_galt_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        unregister_code16(KC_LGUI);
+    } else {
+        unregister_code(KC_LCTL);
+        unregister_code(KC_RALT);
+    }
+}
+
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_ALT_CALT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_calt_finished, dance_calt_reset),
+  [TD_GUI_CALT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_galt_finished, dance_galt_reset),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -60,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      TAB,    Q,    W,    E,    R,    T,          Y,    U,    I,    O,    P, BSPC,
     CESC,    A,    S,    D,    F,    G,          H,    J,    K,    L, SCLN,  ENT,
     LSFT,    Z,    X,    C,    V,    B,          N,    M, COMM,  DOT, SLSH, SQUO,
-                            LGUI, BSLW,  SPC, SPRS, TACA
+                            TGCA, BSLW,  SPC, SPRS, TACA
   ),
 
   [_LOWER] = LAYOUT_kc(
@@ -70,16 +91,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             ____, XXXX,  ENT, ____, ____
   ),
 
+  [_LOWER] = LAYOUT_kc(
+    TILD, EXLM,   AT, HASH,  DLR, PERC,       CIRC, AMPR, ASTR, LPRN, RPRN, PIPE,
+    ____, LCTL, LALT, LGUI, LSFT, ____,       LEFT, DOWN,   UP, RGHT, ASPC, ____,
+    ____, ____, ____, ____, ____, ____,       HOME, PGDN, PGUP,  END, ____, DQUO,
+                            ____, XXXX,  ENT, ____, ____
+  ),
+
   [_RAISE] = LAYOUT_kc(
      GRV,    1,    2,    3,    4,    5,          6,    7,    8,    9,    0, BSLS,
-    ____, MINS,  EQL, LBRC, RBRC, BSLS,       LEFT, DOWN,   UP, RGHT, ASPC, ____,
-    ____,  ESC, RGUI, RALT, CAPS, QUOT,       HOME, PGDN, PGUP,  END, ____, ____,
+    ____, DQUO, LCBR, RCBR, MINS,  EQL,       ____, LSFT, LGUI, LALT, LCTL, ____,
+    ____, SQUO, LBRC, RBRC, UNDS, PLUS,       ____, ____, ____, ____, ____, ____,
                             ____, ____,  ESC, XXXX, ____
   ),
 
   [_ADJUST] = LAYOUT_reviung41(
      KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-    RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, XXXXXXX, RGB_TOG,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, XXXXXXX, RGB_TOG,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_F12,
     RGB_VAD, RGB_SAD, RGB_HUD,RGB_RMOD, XXXXXXX, XXXXXXX,            RESET, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                         _______, XXXXXXX, XXXXXXX, XXXXXXX, _______
   ),
