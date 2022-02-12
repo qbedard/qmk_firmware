@@ -84,12 +84,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             TGCA, BSLW,  SPC, SPRS, TACA
   ),
 
-  [_LOWER] = LAYOUT_kc(
-    TILD, EXLM,   AT, HASH,  DLR, PERC,       CIRC, AMPR, ASTR, LPRN, RPRN, PIPE,
-    ____, UNDS, PLUS, LCBR, RCBR, PIPE,       LEFT, DOWN,   UP, RGHT, ASPC, ____,
-    ____,  ESC, LGUI, LALT, CAPS, DQUO,       RPRN, PLUS, MINS,  EQL, UNDS, DQUO,
-                            ____, XXXX,  ENT, ____, ____
-  ),
+  /* [_LOWER] = LAYOUT_kc( */
+  /*   TILD, EXLM,   AT, HASH,  DLR, PERC,       CIRC, AMPR, ASTR, LPRN, RPRN, PIPE, */
+  /*   ____, UNDS, PLUS, LCBR, RCBR, PIPE,       LEFT, DOWN,   UP, RGHT, ASPC, ____, */
+  /*   ____,  ESC, LGUI, LALT, CAPS, DQUO,       RPRN, PLUS, MINS,  EQL, UNDS, DQUO, */
+  /*                           ____, XXXX,  ENT, ____, ____ */
+  /* ), */
 
   [_LOWER] = LAYOUT_kc(
     TILD, EXLM,   AT, HASH,  DLR, PERC,       CIRC, AMPR, ASTR, LPRN, RPRN, PIPE,
