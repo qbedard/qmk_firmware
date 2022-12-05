@@ -50,21 +50,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_WAVE, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,    KC_____,          KC_____,
         RGB_TOG, RGB_MOD, RGB_VAI, RGB_HUI, RGB_SAI, RGB_SPI, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,  KC_____,   KC_____,          KC_____,
         KC_____, RGB_RMOD,RGB_VAD, RGB_HUD, RGB_SAD, RGB_SPD, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,             KC_____,          KC_____,
-        KC_____,          KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,             KC_____, KC_____,
-        KC_____, KC_____, KC_____,                            KC_____,                            KC_____, KC_____,  KC_____,   KC_____, KC_____, KC_____),
+        KC_____,          KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,             KC_____, LSG(KC_UP),
+        KC_____, KC_____, KC_____,                            KC_____,                            KC_____, KC_____,  KC_____, S(KC_TAB), LSG(KC_DOWN), KC_TAB),
 
     [_RAISE] = LAYOUT_ansi_67(  // Hold Space
-        KC_____, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,   KC_____,          KC_____,
-        KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,  KC_____,  KC_____,          KC_____,
-        KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_____, KC_____,            KC_____,          KC_____,
-        KC_____,          KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,            KC_____, KC_____,
-        KC_____, KC_____, KC_____,                            KC_____,                            KC_____, KC_____,  KC_____,  KC_____, KC_____, KC_____)
+        KC_____, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,    KC_____,          KC_____,
+        KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,  KC_____,   KC_____,          KC_____,
+        KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_____, KC_____,             KC_____,          KC_____,
+        KC_____,          KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,             KC_____, LSG(KC_UP),
+        KC_____, KC_____, KC_____,                            KC_____,                            KC_____, KC_____,  KC_____, S(KC_TAB), LSG(KC_DOWN), KC_TAB)
 };
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [MAC_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
-    [WIN_BASE] = { ENCODER_CCW_CW(KC_WH_U, KC_WH_D) },
+    [MAC_BASE] = { ENCODER_CCW_CW(KC_UP, KC_DOWN) },
+    [WIN_BASE] = { ENCODER_CCW_CW(KC_UP, KC_DOWN) },
     [_FN1]     = { ENCODER_CCW_CW(KC_____, KC_____) },
     [_FN2]     = { ENCODER_CCW_CW(KC_____, KC_____) },
     [_FN3]     = { ENCODER_CCW_CW(KC_____, KC_____) },
