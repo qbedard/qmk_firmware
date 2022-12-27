@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_____, KC_____, KC_____,                            KC_____,                            KC_____, KC_____,  KC_____, S(KC_TAB), LSG(KC_DOWN), KC_TAB),
 
     [_RAISE] = LAYOUT_ansi_67(  // Hold Space
-        KC_____, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,    KC_____,          KC_____,
+        KC_GRV, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,    KC_____,          KC_____,
         KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,  KC_____,   KC_____,          KC_____,
         KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_____, KC_____,             KC_____,          KC_____,
         KC_____,          KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____, KC_____,             KC_____, LSG(KC_UP),
